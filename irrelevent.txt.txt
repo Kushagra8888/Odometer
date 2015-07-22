@@ -1,0 +1,69 @@
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone
+{ 
+	
+	public boolean isValidReading(int []reading){
+		int prev=0;
+		for( int digit:reading){
+			if(digit==0)return false;
+			
+			if(digit<=prev)return false;
+			prev=digit;
+			
+		}return true;
+	}
+	public int[] readArray(String reading){
+		
+		
+        int[] ret = new int[reading.length()];
+        for (int i = 0; i < reading.length(); i++)
+        {
+          ret[i] = reading.charAt(i) - '0';
+         }
+	     return ret;
+	}
+	
+	public int compareOdos (int[] reading1,int[] reading2){
+		
+		for(int i=0;i<reading1.length;++i){
+		if(reading1[i] > reading2[i]){
+			return 1;
+		}
+	    if(i==reading1.length-1 && reading1[i] == reading2[i] )
+	    {
+	    	return 0;
+	    }
+		}
+		
+		return -1;
+		
+	}
+	public int distance (int[] reading1,int[] reading2){
+	for(int i=0;;++i){
+		
+	int[] result=null;
+	//	result=increment(reading1);
+	if(compareOdos(result,reading2)==0){
+		return i;
+	}
+	}
+		
+		
+	}
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes hereid
+		Ideone id= new Ideone();
+		int [] a1=id.readArray("44321");
+		int [] a2={5,6,7,8};//{4,5,6,7};
+		//System.out.println(id.compareOdos(a2,a1));
+		
+		System.out.println(id.isValidReading(a1));
+		
+	}
+}
