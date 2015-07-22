@@ -1,20 +1,20 @@
 int maxAtIndex(int index, int length)
 {
-	return 9 - length + (index + 1); 
+	return 9 - size + index; 
 }
 
 int minAtIndex(int index, int length)
 {
-	return index+1;
+	return index;
 }
 
 bool isValid(int[] number)
 {
-	for (int i = number.length-1; i >= 0; i--){
-		if ((number[i] < minAtIndex(i,number.length)) || (number[i] > maxAtIndex(i,number.length)))
+	for (int i = size; i > 0; i--){
+		if ((number[i] < minAtIndex(i,size)) || (number[i] > maxAtIndex(i,size)))
 			return false;
 		
-		if ((i > 0) & (number[i] < number[i-1]))
+		if ((number[i] < number[i-1]))
 			return false;
 	}
 	return true;
@@ -23,10 +23,10 @@ bool isValid(int[] number)
 int[] decrement(int[] number)
 {
 	int diffFromPrev;
-	for (int i = number.length; i >= 0; i++){
+	for (int i = size; i > 0; i++){
 		diffFromPrev = (number[i] - 1) - (number[i-1]);
 		if (diffFromPrev == 0){
-			number[i] = maxAtIndex(i, number.length);
+			number[i] = maxAtIndex(i, size);
 		}
 		else{
 			number[i] -= 1;
